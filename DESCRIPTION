@@ -1,0 +1,13 @@
+Package: portfolio.optimization
+Type: Package
+Title: Contemporary Portfolio Optimization Modeling
+Version: 1.0-0
+Date: 2017-12-26
+Author: Ronald Hochreiter <ronald@algorithmic.finance>
+Maintainer: Ronald Hochreiter <ronald@algorithmic.finance>
+Description: Contemporary Portfolio Optimization Modeling
+Depends: 
+    R (>= 3.4)
+License: GPL-3
+URL: http://www.finance-r.com/
+RoxygenNote: 6.0.1
