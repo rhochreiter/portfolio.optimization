@@ -2,14 +2,13 @@ Package: portfolio.optimization
 Type: Package
 Title: Contemporary Portfolio Optimization Modeling
 Version: 1.0-0
-Date: 2018-08-10
+Date: 2018-08-11
 Authors@R: c(
   person("Ronald", "Hochreiter", email = "ronald@algorithmic.finance", 
   role = c("aut", "cre")))
 Maintainer: Ronald Hochreiter <ronald@algorithmic.finance>
-Description: Contemporary Portfolio Optimization Modeling
-Depends: 
-    R (>= 3.5)
+Description: This package allows for contemporary Portfolio Optimization modeling. Most approaches are rather complicated and this one tries to simplify things.
+Depends: R (>= 3.5), xts, MASS, magrittr
 License: MIT + file LICENSE
 URL: http://www.finance-r.com/
 RoxygenNote: 6.1.0
