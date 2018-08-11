@@ -4,10 +4,7 @@
 #' \code{portfolio.model} creates a new S3 portfolio.model instance or
 #' fixes an existing one.
 #'
-#' @param model if there is an existing model to modify (default NULL = new model)
-#' @param scenario.set a scenario set (scenarios row-wise, assets col-wise)
-#' @param mean.covariance alternative specification using mean vector and Covariance matrix
-#' @param parameter optional parameter
+#' @param input model, scenario.set or mean.covariance list
 #' 
 #' @return an S3 object of class portfolio.model
 #' 
@@ -16,25 +13,28 @@
 #' @importFrom stats cov
 #'
 #' @export
-portfolio.model <- p.mo <- function(model=NULL, scenario.set=NULL, mean.covariance=NULL, parameter=NULL) {
+portfolio.model <- p.mo <- function(input=NULL) {
 
-  # check input
-  if(is.null(scenario.set) & is.null(mean.covariance)) { }
-  if(!is.null(scenario.set) & !is.null(mean.covariance)) { 
-    warning("Both scenario.set and covariance assigned - using scenario.set only!")
-    mean.covariance <- NULL
-  }
+  ### Check input
   
-  # extract mean vector and covariance matrix
-  if(!is.null(mean.covariance)) {
-    mu <- mean.covariance$mean
-    covariance <- mean.covariance$covariance
+  scenario.set <- NULL
+  mean.covariance <- NULL
+  
+  # new or updated model
+  new.model <- TRUE
+  if('portfolio.model' %in% class(input)) { 
+    new.model <- FALSE 
+  } else {
+    scenario.set <- input
+    #!!! check whether it is a mean.cov list
   }
 
-  # initialize a new portfolio.model if no model given
-  if(is.null(scenario.set)) { model <- list() }
+  ### Create the model / initialize 
+
+  # if a new model is to be generated
+  if(new.model) { model <- list() }
   
-  # (reset) default values if not set
+  # (reset) all default values if not set (yet) - in any case
   if(!("objective" %in% names(model))) model$objective <- "markowitz"
   if(!("precision" %in% names(model))) model$precision <- 8
   if(!("active.extension" %in% names(model))) model$active.extension <- FALSE
@@ -59,10 +59,10 @@ portfolio.model <- p.mo <- function(model=NULL, scenario.set=NULL, mean.covarian
   }
   
   # default values - covariance
-  if(!is.null(covariance)) {
-    model$asset.means <- mu
-    model$covariance <- covariance
-    model$data <- aux_simulate.scenarios(mu, covariance)
+  if(!is.null(mean.covariance)) {
+    model$asset.means <- mean.covariance$mean
+    model$covariance <- mean.covariance$covariance
+    model$data <- aux_simulate.scenarios(mean.covariance$mean, mean.covariance$covariance)
     model$assets <- dim(scenario.set)[2]
     model$scenarios <- dim(scenario.set)[1]
     model$scenario.probabilities <- rep(1/model$scenarios, model$scenarios)

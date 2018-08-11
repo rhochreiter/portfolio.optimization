@@ -20,13 +20,12 @@ optimal.portfolio <- p.opt <- opt.p <- function(input=NULL, ...) {
   if('portfolio.model' %in% class(input)) {
     model <- input
   } else {
-    # if it is not a portfolio.model it is assumed that the input
-    # is either a scenario set or a Mean-Vector and Covariance matrix 
-    model <- portfolio.model(input)
+    # if it is not a portfolio.model create a new one
+    model <- portfolio.model(input, ...)
   }
 
   # if the model is not a portfolio.model after step one, exit
-  if(!'portfolio.model' %in% class(input)) {
+  if(!('portfolio.model' %in% class(model))) {
     stop("Unable to create a portfolio.model with the given input!")
   }
   
