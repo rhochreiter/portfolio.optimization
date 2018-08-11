@@ -37,12 +37,12 @@ optimal.portfolio <- p.opt <- opt.p <- function(input=NULL, ...) {
   # if (model$objective == "reward") {
   #   model <- optimal.portfolio.reward(model, ...) 
   # }
-  # 
-  # # Objective Function: 1overN
-  # if (model$objective == "1overN") {
-  #   model <- optimal.portfolio.1overN(model, ...) 
-  # }
-  # 
+  
+  # Objective Function: 1overN
+  if (model$objective == "1overN") {
+    model <- optimal.portfolio.1overN(model, ...)
+  }
+   
   # # Objective Function: momentum
   # if (model$objective == "momentum") {
   #   model <- optimal.portfolio.momentum(model, ...)
