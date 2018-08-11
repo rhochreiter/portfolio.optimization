@@ -14,10 +14,10 @@
 objective <- function(model, objective="markowitz") {
   
   # check if selected objective is supported
-  supported_objectives <- list("markowitz", "sd", "standard.deviation", "variance"
+  supported_objectives <- list("markowitz", "sd", "standard.deviation", "variance",
+                               "mad"
                                # ,
                                # "reward", "1overN", "momentum", 
-                               # "mad",
                                # "expected.shortfall", "cvar", "avar"
                                )
 
