@@ -4,10 +4,17 @@
 #' \code{portfolio.model} creates a new S3 portfolio.model instance or
 #' fixes an existing one.
 #'
+#' @param model if there is an existing model to modify (default NULL = new model)
+#' @param scenario.set a scenario set (scenarios row-wise, assets col-wise)
+#' @param mean.covariance alternative specification using mean vector and Covariance matrix
+#' @param parameter optional parameter
+#' 
+#' @return an S3 object of class portfolio.model
+#' 
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
 #'
 #' @export
-portfolio.model <- function(model=NULL, scenario.set=NULL, mean.covariance=NULL, parameter=NULL) {
+portfolio.model <- p.mo <- function(model=NULL, scenario.set=NULL, mean.covariance=NULL, parameter=NULL) {
 
   # check input
   if(is.null(scenario.set) & is.null(mean.covariance)) { }
