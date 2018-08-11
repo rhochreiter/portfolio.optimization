@@ -7,9 +7,11 @@
 #'
 #' @param tutorial name of the tutorial to open 
 #' 
-#' @return NULL
+#' @return Nothing.
 #' 
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
+#'
+#' @importFrom utils file.edit
 #'
 #' @export
 po.tutorial <- function(tutorial="") {
@@ -23,5 +25,4 @@ po.tutorial <- function(tutorial="") {
     tutorial_pos <- which(tutorials == tutorial)
     file.edit(paste0(path.package("portfolio.optimization"), "/", tutorial_files[tutorial_pos], ".R"))
   }
-  return(NULL)
 }
