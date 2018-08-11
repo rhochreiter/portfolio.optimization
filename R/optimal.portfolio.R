@@ -53,15 +53,15 @@ optimal.portfolio <- p.opt <- opt.p <- function(input=NULL, ...) {
     model <- optimal.portfolio.markowitz(model, ...)
   }
 
-  # # Objective Function: mad
-  # if (model$objective == "mad") {
-  #   if (model$active.extension) {
-  #     model <- optimal.portfolio.mad.long.short(model, ...)
-  #   } else {  
-  #     model <- optimal.portfolio.mad(model, ...)
-  #   }
-  # }
-  # 
+  # Objective Function: mad
+  if (model$objective == "mad") {
+    if (model$active.extension) {
+      model <- optimal.portfolio.mad.long.short(model, ...)
+    } else {
+      model <- optimal.portfolio.mad(model, ...)
+    }
+  }
+  
   # # Objective Function: expected.shortfall
   # if (model$objective == "expected.shortfall") {
   #   if (model$active.extension) {
