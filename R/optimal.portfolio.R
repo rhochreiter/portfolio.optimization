@@ -1,0 +1,75 @@
+#' @title Meta-function to optimize portfolios given a portfolio.model instance
+#'
+#' @description
+#' \code{portfolio.model} creates a new S3 portfolio.model instance or
+#' fixes an existing one.
+#'
+#' @param input either a portfolio.model or something to convert to a new model
+#' @param ... other parameters to be passed on to the optimization sub-functions.
+#' 
+#' @return an S3 object of class portfolio.model with the optimized portfolio.
+#' 
+#' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
+#'
+#' @export
+optimal.portfolio <- p.opt <- opt.p <- function(input=NULL, ...) {
+
+  ### 1. Check the input
+  
+  # if not the input is not a portfolio.model, create a new model
+  if('portfolio.model' %in% class(input)) {
+    model <- input
+  } else {
+    # if it is not a portfolio.model it is assumed that the input
+    # is either a scenario set or a Mean-Vector and Covariance matrix 
+    model <- portfolio.model(input)
+  }
+
+  # if the model is not a portfolio.model after step one, exit
+  if(!'portfolio.model' %in% class(input)) {
+    stop("Unable to create a portfolio.model with the given input!")
+  }
+  
+  ### 2. Select appropriate optimization function (based on parameter set)
+
+  # # Objective Function: reward
+  # if (model$objective == "reward") {
+  #   model <- optimal.portfolio.reward(model, ...) 
+  # }
+  # 
+  # # Objective Function: 1overN
+  # if (model$objective == "1overN") {
+  #   model <- optimal.portfolio.1overN(model, ...) 
+  # }
+  # 
+  # # Objective Function: momentum
+  # if (model$objective == "momentum") {
+  #   model <- optimal.portfolio.momentum(model, ...)
+  # }
+
+  # Objective Function: markowitz
+  if (model$objective == "markowitz") {
+    model <- optimal.portfolio.markowitz(model, ...)
+  }
+
+  # # Objective Function: mad
+  # if (model$objective == "mad") {
+  #   if (model$active.extension) {
+  #     model <- optimal.portfolio.mad.long.short(model, ...)
+  #   } else {  
+  #     model <- optimal.portfolio.mad(model, ...)
+  #   }
+  # }
+  # 
+  # # Objective Function: expected.shortfall
+  # if (model$objective == "expected.shortfall") {
+  #   if (model$active.extension) {
+  #     model <- optimal.portfolio.expected.shortfall.long.short(model, ...)
+  #   } else {
+  #     model <- optimal.portfolio.expected.shortfall(model, ...)
+  #   }
+  # }
+  
+  # return model
+  return(model)
+}
