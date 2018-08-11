@@ -1,7 +1,7 @@
 #' @title Simulate a multivariate-normal scenario.set 
 #'
 #' @description
-#' \code{aux.simulate.scenarios} simulates a scenario.set given a mean vector and
+#' \code{aux_simulate.scenarios} simulates a scenario.set given a mean vector and
 #' a covariance matrix using mvrnorm of the MASS package
 #'
 #' @param mu mean vector of asset returns 
@@ -14,7 +14,7 @@
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
 #'
 #' @export
-aux.simulate.scenarios <- function(mu, Sigma, n=1000, seed=280277) {
+aux_simulate.scenarios <- function(mu, Sigma, n=1000, seed=280277) {
   set.seed(seed)
   simulation <- MASS::mvrnorm(n, mu, Sigma)
   return(simulation)

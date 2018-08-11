@@ -13,6 +13,8 @@
 #' 
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
 #'
+#' @importFrom stats cov
+#'
 #' @export
 portfolio.model <- p.mo <- function(model=NULL, scenario.set=NULL, mean.covariance=NULL, parameter=NULL) {
 
@@ -60,7 +62,7 @@ portfolio.model <- p.mo <- function(model=NULL, scenario.set=NULL, mean.covarian
   if(!is.null(covariance)) {
     model$asset.means <- mu
     model$covariance <- covariance
-    model$data <- aux.simulate.scenarios(mu, covariance)
+    model$data <- aux_simulate.scenarios(mu, covariance)
     model$assets <- dim(scenario.set)[2]
     model$scenarios <- dim(scenario.set)[1]
     model$scenario.probabilities <- rep(1/model$scenarios, model$scenarios)
