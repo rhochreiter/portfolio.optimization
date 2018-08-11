@@ -11,7 +11,8 @@
 #' 
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
 #'
-#' @importFrom utils file.edit
+# Problem with importFrom - RStudio uses wrong editor if enabled
+# @importFrom utils file.edit
 #'
 #' @export
 po.tutorial <- function(tutorial="") {
@@ -23,6 +24,7 @@ po.tutorial <- function(tutorial="") {
   }
   else {
     tutorial_pos <- which(tutorials == tutorial)
-    file.edit(paste0(path.package("portfolio.optimization"), "/", tutorial_files[tutorial_pos], ".R"))
+    file.edit(paste0(path.package("portfolio.optimization"), "/", tutorial_files[tutorial_pos], ".R"),
+              editor="internal")
   }
 }
