@@ -21,11 +21,12 @@ optimal.portfolio.markowitz <- function(model) {
   ### Objective function
   ### minimize { t(x) * Cov(data) * x }
 
-    Objective <- list()
+  Objective <- list()
   Objective$quadratic <- cov(model$data)
   Objective$linear <- rep(0, model$assets)
   
   ### Constraints
+  
   Constraints <- list(n=n_var, A=NULL, b=NULL, Aeq=NULL, beq=NULL)
   
   # sum(a) { x[a] } == sum.portfolio
