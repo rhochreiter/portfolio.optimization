@@ -1,8 +1,8 @@
 #' @title Meta-function to optimize portfolios given a portfolio.model instance
 #'
 #' @description
-#' \code{portfolio.model} creates a new S3 portfolio.model instance or
-#' fixes an existing one.
+#' \code{optimal.portfolio} optimizes the portfolio of a model given the current
+#' specification
 #'
 #' @param input either a portfolio.model or something to convert to a new model
 #' @param ... other parameters to be passed on to the optimization sub-functions.
