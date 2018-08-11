@@ -9,7 +9,8 @@
 #' 
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
 #'
-#' @export
+#' @export portfolio.weights 
+#' @export x
 portfolio.weights <- x <- function(model) {
   if (is.null(model$portfolio)) { return(NULL) } 
   else { return(model$portfolio$x) }

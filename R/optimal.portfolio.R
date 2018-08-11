@@ -11,7 +11,9 @@
 #' 
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
 #'
-#' @export
+#' @export optimal.portfolio
+#' @export p.opt
+#' @export opt.p
 optimal.portfolio <- p.opt <- opt.p <- function(input=NULL, ...) {
 
   ### 1. Check the input

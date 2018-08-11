@@ -12,7 +12,8 @@
 #'
 #' @importFrom stats cov
 #'
-#' @export
+#' @export portfolio.model
+#' @export p.mo
 portfolio.model <- p.mo <- function(input=NULL) {
 
   ### Check input
