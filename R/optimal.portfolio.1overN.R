@@ -1,7 +1,7 @@
 #' @title 1 over N portfolio
 #' 
 #' @description
-#' \code{portfolio.weights} adds a 1 over N portfolio to the portfolio.model
+#' \code{optimal.portfolio.1overN} adds a 1 over N portfolio to the portfolio.model
 #'
 #' @param model the portfolio.model to compute the portfolio of
 #' 
