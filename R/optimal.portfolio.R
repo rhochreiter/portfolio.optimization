@@ -62,14 +62,14 @@ optimal.portfolio <- p.opt <- opt.p <- function(input=NULL, ...) {
     }
   }
   
-  # # Objective Function: expected.shortfall
-  # if (model$objective == "expected.shortfall") {
-  #   if (model$active.extension) {
-  #     model <- optimal.portfolio.expected.shortfall.long.short(model, ...)
-  #   } else {
-  #     model <- optimal.portfolio.expected.shortfall(model, ...)
-  #   }
-  # }
+  # Objective Function: expected.shortfall
+  if (model$objective == "expected.shortfall") {
+    if (model$active.extension) {
+      model <- optimal.portfolio.expected.shortfall.long.short(model, ...)
+    } else {
+      model <- optimal.portfolio.expected.shortfall(model, ...)
+    }
+  }
   
   # return model
   return(model)
