@@ -36,18 +36,7 @@ portfolio.model <- p.mo <- function(input=NULL) {
   if(new.model) { model <- list() }
   
   # (reset) all default values if not set (yet) - in any case
-  if(!("objective" %in% names(model))) model$objective <- "markowitz"
-  if(!("precision" %in% names(model))) model$precision <- 8
-  if(!("active.extension" %in% names(model))) model$active.extension <- FALSE
-  if(!("sum.portfolio" %in% names(model))) model$sum.portfolio <- 1
-  if(!("alpha" %in% names(model))) model$alpha <- 0.05
-  if(!("min.mean" %in% names(model))) model$min.mean <- NULL
-  if(!("max.mean" %in% names(model))) model$max.mean <- NULL
-  if(!("fix.mean" %in% names(model))) model$fix.mean <- NULL
-  if(!("sum.long" %in% names(model))) model$sum.long <- NULL
-  if(!("sum.short" %in% names(model))) model$sum.short <- NULL
-  if(!("momentum.long" %in% names(model))) model$momentum.long <- NULL
-  if(!("momentum.short" %in% names(model))) model$momentum.short <- NULL
+  model <- aux_portfolio.default(model)
   
   # default values - scenario.set
   if(!is.null(scenario.set)) {
