@@ -17,8 +17,9 @@ objective <- function(model, objective="markowitz") {
   objective <- aux_risk.alias(objective)
   
   # check if selected objective is supported
-  supported_objectives <- list("1overN", "markowitz", "mad", "expected.shortfall"
-                               # "reward", "momentum", 
+  supported_objectives <- list("1overN", "markowitz", "mad", "expected.shortfall",
+                               "momentum"
+                               # "reward",
                                )
 
   # if not, fall back to markowitz
