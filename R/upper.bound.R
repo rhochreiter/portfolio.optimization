@@ -1,11 +1,12 @@
 #' @title Set upper bounds on assets
 #' 
 #' @description
-#' \code{portfolio.weights} sets upper bounds on assets within a portfolio.model
+#' \code{upper.bound} sets lower bounds on assets within a portfolio.model
 #'
 #' @param model the portfolio.model to adapt the upper bounds
-#' @param V1 either one upper bound or lower bounds for all assets 
-#' @param V2 if not empty then V1 contains the positions (or names) and V2 the bounds
+#' @param v1 either one upper bound or lower bounds for all assets 
+#' @param v2 if not empty then v1 contains the positions (or names) 
+#' and v2 the bounds
 #' 
 #' @return portfolio.model with new upper bounds
 #' 

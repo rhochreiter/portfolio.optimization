@@ -1,11 +1,12 @@
 #' @title Set lower bounds on assets
 #' 
 #' @description
-#' \code{portfolio.weights} sets lower bounds on assets within a portfolio.model
+#' \code{lower.bound} sets lower bounds on assets within a portfolio.model
 #'
 #' @param model the portfolio.model to adapt the lower bounds
-#' @param V1 either one lower bound or lower bounds for all assets 
-#' @param V2 if not empty then V1 contains the positions (or names) and V2 the bounds
+#' @param v1 either one lower bound or lower bounds for all assets 
+#' @param v2 if not empty then v1 contains the positions (or names) 
+#' and v2 the bounds
 #' 
 #' @return portfolio.model with new lower bounds
 #' 
