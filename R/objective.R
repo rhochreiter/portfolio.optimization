@@ -13,13 +13,13 @@
 #' @export
 objective <- function(model, objective="markowitz") {
   
+  # check if alias is used for objective
+  objective <- aux_risk.alias(objective)
+  
   # check if selected objective is supported
-  supported_objectives <- list("markowitz", "sd", "standard.deviation", "variance",
-                               "mad",
-                               "1overN"
-                               # ,
+  supported_objectives <- list("1overN", "markowitz", "mad"
                                # "reward", "momentum", 
-                               # "expected.shortfall", "cvar", "avar"
+                               # "expected.shortfall"
                                )
 
   # if not, fall back to markowitz
@@ -27,14 +27,6 @@ objective <- function(model, objective="markowitz") {
     warning("Selected objective is not supported! Falling back to objective: markowitz")
     objective <- "markowitz"
   }
-  
-  # alias handling
-  if (objective == "sd") { objective <- "markowitz" }
-  if (objective == "standard.deviation") { objective <- "markowitz" }
-  if (objective == "variance") { objective <- "markowitz" }
-  
-  if (objective == "cvar") { objective <- "expected.shortfall" }
-  if (objective == "avar") { objective <- "expected.shortfall" }
 
   # set objective and return model
   model$objective <- objective
