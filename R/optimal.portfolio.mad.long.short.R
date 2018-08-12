@@ -1,7 +1,7 @@
 #' @title Portfolio Optimization minimizing MAD (Active Extension)
 #' 
 #' @description
-#' \code{portfolio.weights} conducts a Portfolio Optimization minimizing Mean 
+#' \code{optimal.portfolio.mad.long.short} conducts a Portfolio Optimization minimizing Mean 
 #' Absolute Deviation (MAD) based on Konno and Yamazaki (1991) including an
 #' active extension
 #'

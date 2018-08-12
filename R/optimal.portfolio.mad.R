@@ -1,7 +1,7 @@
 #' @title Portfolio Optimization minimizing MAD
 #' 
 #' @description
-#' \code{portfolio.weights} conducts a Portfolio Optimization minimizing Mean 
+#' \code{optimal.portfolio.mad} conducts a Portfolio Optimization minimizing Mean 
 #' Absolute Deviation (MAD) based on Konno and Yamazaki (1991)
 #'
 #' @param model the portfolio.model to compute the portfolio of
