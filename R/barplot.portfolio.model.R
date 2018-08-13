@@ -4,14 +4,16 @@
 #' \code{barplot.portfolio.model} overloads barplot() and plots the portfolio
 #' weights of the given model
 #'
-#' @param model the portfolio.model to plot the portfolio weights from
+#' @param height the portfolio.model to plot the portfolio weights from
+#' @param ... further parameters
 #' 
 #' @return nothing
 #' 
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
-#'
+#' 
 #' @export
-barplot.portfolio.model <- function(model) {
+barplot.portfolio.model <- function(height, ...) {
+  model <- height
   labels <- names(model$data)[which(model$portfolio$x == 0)]
   labels[which(model$portfolio$x == 0)] <- NA
   barplot(las=3, model$portfolio$x[which(model$portfolio$x > 0)], 

@@ -17,8 +17,7 @@ optimal.portfolio.momentum <- function(model) {
   momentum.n <- 0.1 # if not specified within model
   
   ### Find momentum assets
-  
-  asset.mean <- asset.apply(model, mean)
+  asset.mean <- apply(model$data, 2, mean)
   sorted.asset.mean.ix <- sort(asset.mean, decreasing=TRUE, index.return=TRUE)$ix
 
   ### Initialize weights
@@ -35,7 +34,7 @@ optimal.portfolio.momentum <- function(model) {
       n.short <- n.long 
     } else { n.short <- model$momentum.short }
     weights[sorted.asset.mean.ix[1:n.long]] <- model$sum.long/n.long 
-    weights[sorted.asset.mean.ix[(nasset(model)-n.short+1):nasset(model)]] <- -model$sum.short/n.short
+    weights[sorted.asset.mean.ix[(model$assets-n.short+1):model$assets]] <- -model$sum.short/n.short
     
   ### No Active Extension
   

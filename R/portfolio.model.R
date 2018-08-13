@@ -12,9 +12,8 @@
 #'
 #' @importFrom stats cov
 #'
-#' @export portfolio.model
-#' @export p.mo
-portfolio.model <- p.mo <- function(input=NULL) {
+#' @export 
+portfolio.model <- function(input=NULL) {
 
   ### Check input
   
@@ -69,3 +68,7 @@ portfolio.model <- p.mo <- function(input=NULL) {
   class(model) <- "portfolio.model"  
   return(model)
 }
+
+#' @rdname portfolio.model
+#' @export
+p.mo <- portfolio.model

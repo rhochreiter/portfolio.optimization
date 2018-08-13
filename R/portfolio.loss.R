@@ -9,9 +9,12 @@
 #' 
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
 #'
-#' @export portfolio.loss
-#' @export l
-portfolio.loss <- l <- function(model) {
+#' @export
+portfolio.loss <- function(model) {
   if(is.na(model$portfolio)) { return(NA) }
   return(as.vector(model$portfolio$x %*% t(model$data)))
 }
+
+#' @rdname portfolio.loss
+#' @export
+l <- portfolio.loss

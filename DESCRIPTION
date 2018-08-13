@@ -8,7 +8,7 @@ Authors@R: c(
   role = c("aut", "cre")))
 Maintainer: Ronald Hochreiter <ron@hochreiter.net>
 Description: This package enables a contemporary way to solve portfolio optimization problems. Most approaches and packages are rather complicated and this one tries to simplify things and generalize the approach to portfolio optimization regarding risk measures and optimization solvers.
-Depends: R (>= 3.5), xts, MASS, magrittr
+Depends: R (>= 3.5), xts, MASS, magrittr, modopt.matlab
 License: MIT + file LICENSE
 URL: http://www.finance-r.com/
 RoxygenNote: 6.1.0

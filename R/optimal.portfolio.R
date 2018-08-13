@@ -11,10 +11,8 @@
 #' 
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
 #'
-#' @export optimal.portfolio
-#' @export p.opt
-#' @export opt.p
-optimal.portfolio <- p.opt <- opt.p <- function(input=NULL, ...) {
+#' @export
+optimal.portfolio <- function(input=NULL, ...) {
 
   ### 1. Check the input
   
@@ -74,3 +72,11 @@ optimal.portfolio <- p.opt <- opt.p <- function(input=NULL, ...) {
   # return model
   return(model)
 }
+
+#' @rdname optimal.portfolio
+#' @export
+p.opt <- optimal.portfolio
+
+#' @rdname optimal.portfolio
+#' @export
+opt.p <- optimal.portfolio
