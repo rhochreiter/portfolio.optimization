@@ -18,7 +18,7 @@ markowitz <- model <- optimal.portfolio(scenario.set)
 
 # 2b. Expected Shortfall/CVaR with alpha=95% and alpha=90%
 cvar95 <- optimal.portfolio(objective(model, "expected.shortfall"))
-cvar90 <- optimal.portfolio(alpha(model, 0.1))
+cvar90 <- optimal.portfolio(alpha(cvar95, 0.1))
 
 # 2c. Mean Absolute Deviation (MAD)
 mad <- optimal.portfolio(objective(model, "mad"))
@@ -34,7 +34,7 @@ barplot(t(compare), beside=TRUE, col=rainbow(4), las=3, names.arg=names(data),
 
 markowitz <- model <- optimal.portfolio(upper.bound(portfolio.model(scenario.set), 0.15))
 cvar95 <- optimal.portfolio(objective(model, "expected.shortfall"))
-cvar90 <- optimal.portfolio(alpha(model, 0.1))
+cvar90 <- optimal.portfolio(alpha(cvar95, 0.1))
 mad <- optimal.portfolio(objective(model, "mad"))
 
 compare <- matrix(c(x(markowitz), x(mad), x(cvar95), x(cvar90)), 
