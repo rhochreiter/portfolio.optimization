@@ -1,11 +1,10 @@
-#' Contemporary Portfolio Optimization Modeling
+#' Contemporary Portfolio Optimization
 #' 
 #' @references \url{http://www.finance-r.com/}
 #' 
 #' @import MASS magrittr xts modopt.matlab
 #' @importFrom graphics barplot
 #' @importFrom grDevices topo.colors
-#' @importFrom utils file.edit
 #' 
-#' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
+#' @author Ronald Hochreiter, \email{ronald@@hochreiter.net}
 "_PACKAGE"

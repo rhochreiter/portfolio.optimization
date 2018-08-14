@@ -2,7 +2,7 @@ Package: portfolio.optimization
 Type: Package
 Title: Contemporary Portfolio Optimization
 Version: 1.0-0
-Date: 2018-08-12
+Date: 2018-08-14
 Authors@R: c(
   person("Ronald", "Hochreiter", email = "ron@hochreiter.net", 
   role = c("aut", "cre")))
