@@ -15,6 +15,18 @@ portfolio.weights <- function(model) {
   else { return(model$portfolio$x) }
 }
 
+#' @rdname portfolio
+#' @export
+portfolio <- portfolio.weights
+
+#' @rdname portfolio.weights
+#' @export
+w <- portfolio.weights
+
+#' @rdname portfolio.weights
+#' @export
+weights <- portfolio.weights
+
 #' @rdname portfolio.weights
 #' @export
 x <- portfolio.weights
