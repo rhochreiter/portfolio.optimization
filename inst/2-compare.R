@@ -1,15 +1,9 @@
 ### 1. Data
 
 # Use daily-based (crude) weekly return data from the S&P 100 in 2017
-data(sp100w17)
-
-# Only use 30 assets with the highest average trading volume during 2017
-sort.by.volume <- sort(sp100w17av, index.return=TRUE, decreasing = TRUE)
-top30.volume <- sort(sort.by.volume$ix[1:30])
-
-# Create the scenario set with those
-scenario.set <- sp100w17[, top30.volume]
-rm(sp100w17, sp100w17av, sort.by.volume, top30.volume)
+# This scenario set contains 30 stocks with the highest average trading 
+# volume over 2017
+data(sp100w17av30s)
 
 ### 2. Calculate optimal portfolios with different risk measures
 
@@ -27,7 +21,7 @@ mad <- optimal.portfolio(objective(model, "mad"))
 
 compare <- matrix(c(x(markowitz), x(mad), x(cvar95), x(cvar90)), 
                   nrow=model$assets, byrow=FALSE)
-barplot(t(compare), beside=TRUE, col=rainbow(4), las=3, names.arg=names(data), 
+barplot(t(compare), beside=TRUE, las=3, names.arg=colnames(scenario.set), 
         legend=c("Markowitz", "MAD", "CVaR (95%)", "CVaR (90%)"))
 
 ### 4. Add upper bounds (0.15) and repeat optimizations
@@ -39,5 +33,5 @@ mad <- optimal.portfolio(objective(model, "mad"))
 
 compare <- matrix(c(x(markowitz), x(mad), x(cvar95), x(cvar90)), 
                   nrow=model$assets, byrow=FALSE)
-barplot(t(compare), beside=TRUE, col=rainbow(4), las=3, names.arg=names(data), 
+barplot(t(compare), beside=TRUE, las=3, names.arg=colnames(scenario.set), 
         legend=c("Markowitz", "MAD", "CVaR (95%)", "CVaR (90%)"))

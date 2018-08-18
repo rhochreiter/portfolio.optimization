@@ -1,15 +1,9 @@
 ### 1. Data
 
 # Use daily-based (crude) weekly return data from the S&P 100 in 2017
-data(sp100w17)
-
-# Only use 30 assets with the highest average trading volume during 2017
-sort.by.volume <- sort(sp100w17av, index.return=TRUE, decreasing = TRUE)
-top30.volume <- sort(sort.by.volume$ix[1:30])
-
-# Create the scenario set with those
-scenario.set <- sp100w17[, top30.volume]
-rm(sp100w17, sp100w17av, sort.by.volume, top30.volume)
+# This scenario set contains 30 stocks with the highest average trading 
+# volume over 2017
+data(sp100w17av30s)
 
 ### 2. Default Portfolio Optimization Model
 
@@ -24,4 +18,5 @@ mad13030 <- optimal.portfolio(objective(model, "mad"))
 
 # 3. Plot comparison
 barplot(matrix(c(x(cvar13030), x(mad13030)), nrow=2, byrow=TRUE), 
-        las=3, names.arg=names(data), beside=TRUE, col=topo.colors(2))
+        las=3, names.arg=colnames(scenario.set), beside=TRUE,
+        legend=c("CVaR (95%) 130/30", "MAD 130/30"))
