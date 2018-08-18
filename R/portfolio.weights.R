@@ -15,7 +15,7 @@ portfolio.weights <- function(model) {
   else { return(model$portfolio$x) }
 }
 
-#' @rdname portfolio
+#' @rdname portfolio.weights
 #' @export
 portfolio <- portfolio.weights
 
