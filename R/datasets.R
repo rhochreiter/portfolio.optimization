@@ -34,6 +34,7 @@ NULL
 #' @docType data
 #' @keywords datasets
 #' @name sp100w17av30s
+#' @aliases scenario.set
 #' @usage data(sp100w17av30s)
 #' @format A named matrix scenario.set with 251 rows and 30 columns.
 NULL
