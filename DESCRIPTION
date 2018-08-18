@@ -2,12 +2,12 @@ Package: portfolio.optimization
 Type: Package
 Title: Contemporary Portfolio Optimization
 Version: 1.0-0
-Date: 2018-08-16
+Date: 2018-08-18
 Authors@R: c(
   person("Ronald", "Hochreiter", email = "ron@hochreiter.net", 
   role = c("aut", "cre")))
 Maintainer: Ronald Hochreiter <ron@hochreiter.net>
-Description: This package enables a contemporary way to solve portfolio optimization problems. Most approaches and packages are rather complicated and this one tries to simplify things and generalize the approach to portfolio optimization regarding risk measures and optimization solvers.
+Description: Simplify your portfolio optimization process by applying a contemporary modeling way to model and solve your portfolio problems. While most approaches and packages are rather complicated this one tries to simplify things and is agnostic regarding risk measures as well as optimization solvers.
 Depends: R (>= 3.5), xts, MASS, magrittr, modopt.matlab
 License: MIT + file LICENSE
 URL: http://www.finance-r.com/

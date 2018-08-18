@@ -10,6 +10,15 @@
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
 #'
 #' @export
+#' 
+#' @examples
+#' library(portfolio.optimization)
+#' 
+#' data(sp100w17av30s)
+#' 
+#' scenario.set %>% 
+#'   optimal.portfolio %>% 
+#'   weights
 portfolio.weights <- function(model) {
   if (is.null(model$portfolio)) { return(NULL) } 
   else { return(model$portfolio$x) }
