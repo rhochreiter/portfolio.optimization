@@ -13,8 +13,8 @@
 #'
 #' @export
 po.tutorial <- function(tutorial="") {
-  tutorials <- c("101", "compare", "13030")
-  tutorial_files <- c("1-po101", "2-compare", "3-13030")
+  tutorials <- c("101", "compare", "13030", "scenario")
+  tutorial_files <- c("1-po101", "2-compare", "3-13030", "4-scenario")
   
   if(!tutorial %in% tutorials) {
     print(paste0("Available tutorials: ", paste(tutorials, collapse=", ")))
