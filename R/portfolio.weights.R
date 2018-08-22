@@ -12,13 +12,9 @@
 #' @export
 #' 
 #' @examples
-#' library(portfolio.optimization)
-#' 
 #' data(sp100w17av30s)
+#' portfolio.weights(optimal.portfolio(scenario.set))
 #' 
-#' scenario.set %>% 
-#'   optimal.portfolio %>% 
-#'   weights
 portfolio.weights <- function(model) {
   if (is.null(model$portfolio)) { return(NULL) } 
   else { return(model$portfolio$x) }

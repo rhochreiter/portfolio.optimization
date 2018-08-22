@@ -11,6 +11,12 @@
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
 #'
 #' @export
+#'
+#' @examples
+#' data(sp100w17av30s)
+#' model <- portfolio.model(scenario.set)
+#' mad <- optimal.portfolio(objective(model, "mad"))
+#'
 objective <- function(model, objective="markowitz") {
   
   # check if alias is used for objective

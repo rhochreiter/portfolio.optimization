@@ -10,8 +10,15 @@
 #' @return Nothing if no tutorial specified, otherwise the path to the tutorial.
 #' 
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
-#'
+#' 
 #' @export
+#' 
+#' @examples
+#' \dontrun{
+#' file.edit(po.tutorial("101"))
+#' file.edit(po.tutorial("compare"))
+#' }
+#' 
 po.tutorial <- function(tutorial="") {
   tutorials <- c("101", "compare", "13030", "scenario")
   tutorial_files <- c("1-po101", "2-compare", "3-13030", "4-scenario")

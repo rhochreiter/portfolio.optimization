@@ -12,6 +12,11 @@
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
 #'
 #' @export
+#' 
+#' @examples
+#' data(sp100w17av30s)
+#' model <- optimal.portfolio(scenario.set)
+#'
 optimal.portfolio <- function(input=NULL, ...) {
 
   ### 1. Check the input

@@ -11,6 +11,13 @@
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
 #'
 #' @export
+#' 
+#' @examples
+#' data(sp100w17av30s)
+#' model <- optimal.portfolio(scenario.set)
+#' cvar95 <- optimal.portfolio(objective(model, "expected.shortfall"))
+#' cvar90 <- optimal.portfolio(alpha(cvar95, 0.1))
+#'
 alpha <- function(model, alpha) {
   # check alpha
   if ((alpha < 0) | (alpha > 1)) { 
