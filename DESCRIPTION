@@ -1,8 +1,8 @@
 Package: portfolio.optimization
 Type: Package
 Title: Contemporary Portfolio Optimization
-Version: 1.0-0
-Date: 2018-08-20
+Version: 1.0-1
+Date: 2019-06-11
 Authors@R: c(
   person("Ronald", "Hochreiter", email = "ron@hochreiter.net", 
   role = c("aut", "cre")))
@@ -11,4 +11,4 @@ Description: Simplify your portfolio optimization process by applying a contempo
 Depends: R (>= 3.5), xts, MASS, magrittr, modopt.matlab
 License: MIT + file LICENSE
 URL: http://www.finance-r.com/
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
