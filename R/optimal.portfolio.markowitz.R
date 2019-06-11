@@ -33,8 +33,10 @@ optimal.portfolio.markowitz <- function(model) {
   Constraints <- linear.constraint.eq(Constraints, c(1:model$assets), model$sum.portfolio)
 
   # sum(a) { x[a] * mean[a] } => min.mean
-  if(!is.null(model$min.mean)) { Constraints <- linear.constraint.iq(Constraints, c((ix_x):(ix_x+model$assets-1)), -model$min.mean, -1*model$asset.means) }
-
+  sign <- -1
+  #if (model$min.mean > mean(colMeans(model$data))) { sign <- -1 } # !!! only if scenario.data available
+  if(!is.null(model$min.mean)) { Constraints <- linear.constraint.iq(Constraints, c((ix_x):(ix_x+model$assets-1)), sign * model$min.mean, sign * model$asset.means) }
+  
   # sum(a) { x[a] * mean[a] } == fix.mean
   if(!is.null(model$fix.mean)) { Constraints <- linear.constraint.eq(Constraints, c((ix_x):(ix_x+model$assets-1)), model$fix.mean, model$asset.means) }
   
@@ -44,7 +46,7 @@ optimal.portfolio.markowitz <- function(model) {
   Bounds$upper <- model$asset.bound.upper
 
   ### Solve optimization problem using modopt.quadprog
-  solution <- quadprog(Objective$quadratic, Objective$linear, Constraints$A, Constraints$b, Constraints$Aeq, Constraints$beq, Bounds$lower, Bounds$upper)
+  solution <- modopt.matlab::quadprog(Objective$quadratic, Objective$linear, Constraints$A, Constraints$b, Constraints$Aeq, Constraints$beq, Bounds$lower, Bounds$upper)
 
   ### Add optimal portfolio to model  
   portfolio <- list()
