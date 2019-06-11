@@ -11,7 +11,7 @@
 #' 
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
 #'
-#' @export
+#' @export print.portfolio.model
 print.portfolio.model <- function(x, ...) {
   model <- x
   
