@@ -1,10 +1,8 @@
 # Contemporary Portfolio Optimization with R
 
-&copy; 2013-2018 Ronald Hochreiter / <ron@hochreiter.net>
+&copy; 2013-2026 Ronald Hochreiter / <ron@hochreiter.net>
 
 This package aims at implementing something along the lines of a tidy portfolio optimization framework, simplifying the whole process from data to decision as good as possible.
-
-More about Finance with R can be found at http://finance-r.com/
 
 ## Main Motivation
 
